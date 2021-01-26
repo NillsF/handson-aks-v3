@@ -6,4 +6,3 @@ data:
 kind: ConfigMap
 metadata:
   name: example-redis-config
-  namespace: default
