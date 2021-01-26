@@ -25,12 +25,8 @@ spec:
             memory: 100Mi
         env:
         - name: GET_HOSTS_FROM
-<<<<<<< HEAD
-          value: dns
-=======
           value: env
         - name: REDIS_SLAVE_SERVICE_HOST
           value: redis-replica
->>>>>>> 42040a4f27bcf3e30815edba741d57b8ad34172e
         ports:
         - containerPort: 80
