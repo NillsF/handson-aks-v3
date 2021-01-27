@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nginx-1
-          image: nginx
+          image: nginx:1.19.6-alpine
           ports:
             - containerPort: 80
           livenessProbe:
