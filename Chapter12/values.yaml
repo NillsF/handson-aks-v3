@@ -1,0 +1,41 @@
+# azureTenantID is the AAD tenant that the subscription is in
+azureTenantID: "1cf4b872-ae04-44c8-8318-2ba43e95f591"
+# azureSubscriptionID is the Azure Subscription the operator will act against.
+azureSubscriptionID: "ede7a1e5-4121-427f-876e-e100eba989a0"
+
+# azureOperatorKeyvault is the Azure Key Vault to store secrets in. This field is optional.
+azureOperatorKeyvault: "handsonaks-aso"
+
+# cloudEnvironment is the cloud environment. Possible values include: AzurePublicCloud, AzureUSGovernmentCloud, AzureChinaCloud, AzureGermanCloud
+cloudEnvironment: AzurePublicCloud
+
+# azureClientID is the client ID of the Managed Identity to use to authenticate with Azure.
+azureClientID: "3ac98dc7-ef67-44d8-8557-d196cd8e5b67"
+
+# azureUseMI determines if ASO will use a Managed Identity to authenticate.
+azureUseMI: true
+
+# image defines the container image the ASO pod should run
+# Note: This should use the latest released tag number explicitly. If
+# it's ':latest' and someone deploys the chart after a new version has
+# been released but before the the chart is updated, they could get
+# errors, eg. due to types in the operator binary that have no
+# corresponding CRD yaml in the cart (and so no CRD in the k8s
+# repository).
+image:
+  repository: mcr.microsoft.com/k8s/azureserviceoperator:0.1.16800
+
+# installAadPodIdentity determines if the aad-pod-identity subchart should be installed.
+installAadPodIdentity: true
+
+aad-pod-identity:
+  azureIdentityBinding:
+    name: aso-identity-binding
+    selector: aso_manager_binding
+  azureIdentity:
+    enabled: True
+    name: aso-identity
+    type: 0
+    # Update values for Managed Identity
+    resourceID: "/subscriptions/ede7a1e5-4121-427f-876e-e100eba989a0/resourceGroups/ASO/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aso-mi"
+    clientID: "3ac98dc7-ef67-44d8-8557-d196cd8e5b67"
