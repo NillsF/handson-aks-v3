@@ -1,22 +1,22 @@
-azureTenantID: "72f988bf-86f1-41af-91ab-2d7cd011db47"
-azureSubscriptionID: "d19dddf3-9520-4226-a313-ae8ee08675e5"
-azureOperatorKeyvault: "handson-aks-aso"
-azureClientID: "3a65e2ff-7831-4ed6-8922-7cf6a00d3698"
+azureTenantID: "<tenant ID>"
+azureSubscriptionID: "<subscription ID>"
+azureOperatorKeyvault: "<key vault name>"
+azureClientID: "<client ID>"
 
 
 cloudEnvironment: AzurePublicCloud
 azureUseMI: true
 image:
-  repository: mcr.microsoft.com/k8s/azureserviceoperator:1.0.19504
-installAadPodIdentity: false
+  repository: mcr.microsoft.com/k8s/azureserviceoperator:0.1.16800
+installAadPodIdentity: true
 
 aad-pod-identity:
   azureIdentityBinding:
     name: aso-identity-binding
-    selector: aso-identity-binding
+    selector: aso_manager_binding
   azureIdentity:
     enabled: True
     name: aso-identity
     type: 0
-    resourceID: "/subscriptions/d19dddf3-9520-4226-a313-ae8ee08675e5/resourceGroups/ASO/providers/Microsoft.ManagedIdentity/userAssignedIdentities/aso-mi"
-    clientID: "3a65e2ff-7831-4ed6-8922-7cf6a00d3698"
+    resourceID: "<resource ID>"
+    clientID: "<client ID>"
