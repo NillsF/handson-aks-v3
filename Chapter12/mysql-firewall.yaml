@@ -4,6 +4,6 @@ metadata:
   name: allow-all-mysql
 spec:
   resourceGroup: aso-resources
-  server: wp-helm-mysql
+  server: <mysql-server-name>
   startIpAddress: 0.0.0.0
   endIpAddress: 255.255.255.255
