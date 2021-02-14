@@ -1,7 +1,7 @@
 apiVersion: azure.microsoft.com/v1alpha1
 kind: MySQLServer
 metadata:
-  name: wp-helm-mysql
+  name: <mysql-server-name>
 spec:
   location: westus2
   resourceGroup: aso-resources
