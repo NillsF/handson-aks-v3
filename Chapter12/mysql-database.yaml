@@ -4,4 +4,4 @@ metadata:
   name: wordpress-db
 spec:
   resourceGroup: aso-resources
-  server: wp-helm-mysql
+  server: <mysql-server-name>
